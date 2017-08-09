@@ -1,0 +1,37 @@
+﻿生成启动时间为 2017/8/9 15:15:40。
+     1>项目“D:\lidongxuan\ssh2_proj\ssh2_proj\ssh2_proj.vcxproj”在节点 2 上(Rebuild 个目标)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl- /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt sftp_write.cpp
+         sftp_write.cpp
+     1>sftp_write.cpp(77): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+                 C:\Program Files (x86)\Windows Kits\8.1\Include\um\winsock2.h(1850) : 参见“inet_addr”的声明
+     1>sftp_write.cpp(81): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+                 C:\Program Files (x86)\Windows Kits\8.1\Include\um\winsock2.h(1850) : 参见“inet_addr”的声明
+     1>sftp_write.cpp(41): warning C4101: “i”: 未引用的局部变量
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\lidongxuan\ssh2_proj\Release\ssh2_proj.exe" /NOLOGO libssh2.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\lidongxuan\ssh2_proj\Release\ssh2_proj.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\lidongxuan\ssh2_proj\Release\ssh2_proj.lib" /MACHINE:X86 /SAFESEH /SAFESEH:NO Release\sftp_write.obj
+     1>libssh2.lib(sftp.obj) : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/OPT:ICF”规范)
+     1>LINK : warning LNK4098: 默认库“LIBCMT”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+         正在生成代码
+         已完成代码的生成
+     1>libssh2.lib(channel.obj) : warning LNK4099: 未找到 PDB“vc90.pdb”(使用“libssh2.lib(channel.obj)”或在“D:\lidongxuan\ssh2_proj\Release\vc90.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>libssh2.lib(comp.obj) : warning LNK4099: 未找到 PDB“vc90.pdb”(使用“libssh2.lib(comp.obj)”或在“D:\lidongxuan\ssh2_proj\Release\vc90.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>libssh2.lib(crypt.obj) : warning LNK4099: 未找到 PDB“vc90.pdb”(使用“libssh2.lib(crypt.obj)”或在“D:\lidongxuan\ssh2_proj\Release\vc90.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>libssh2.lib(global.obj) : warning LNK4099: 未找到 PDB“vc90.pdb”(使用“libssh2.lib(global.obj)”或在“D:\lidongxuan\ssh2_proj\Release\vc90.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>libssh2.lib(hostkey.obj) : warning LNK4099: 未找到 PDB“vc90.pdb”(使用“libssh2.lib(hostkey.obj)”或在“D:\lidongxuan\ssh2_proj\Release\vc90.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>libssh2.lib(keepalive.obj) : warning LNK4099: 未找到 PDB“vc90.pdb”(使用“libssh2.lib(keepalive.obj)”或在“D:\lidongxuan\ssh2_proj\Release\vc90.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>libssh2.lib(kex.obj) : warning LNK4099: 未找到 PDB“vc90.pdb”(使用“libssh2.lib(kex.obj)”或在“D:\lidongxuan\ssh2_proj\Release\vc90.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>libssh2.lib(mac.obj) : warning LNK4099: 未找到 PDB“vc90.pdb”(使用“libssh2.lib(mac.obj)”或在“D:\lidongxuan\ssh2_proj\Release\vc90.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>libssh2.lib(misc.obj) : warning LNK4099: 未找到 PDB“vc90.pdb”(使用“libssh2.lib(misc.obj)”或在“D:\lidongxuan\ssh2_proj\Release\vc90.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>libssh2.lib(openssl.obj) : warning LNK4099: 未找到 PDB“vc90.pdb”(使用“libssh2.lib(openssl.obj)”或在“D:\lidongxuan\ssh2_proj\Release\vc90.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>libssh2.lib(packet.obj) : warning LNK4099: 未找到 PDB“vc90.pdb”(使用“libssh2.lib(packet.obj)”或在“D:\lidongxuan\ssh2_proj\Release\vc90.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>libssh2.lib(session.obj) : warning LNK4099: 未找到 PDB“vc90.pdb”(使用“libssh2.lib(session.obj)”或在“D:\lidongxuan\ssh2_proj\Release\vc90.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>libssh2.lib(sftp.obj) : warning LNK4099: 未找到 PDB“vc90.pdb”(使用“libssh2.lib(sftp.obj)”或在“D:\lidongxuan\ssh2_proj\Release\vc90.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>libssh2.lib(transport.obj) : warning LNK4099: 未找到 PDB“vc90.pdb”(使用“libssh2.lib(transport.obj)”或在“D:\lidongxuan\ssh2_proj\Release\vc90.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+     1>libssh2.lib(userauth.obj) : warning LNK4099: 未找到 PDB“vc90.pdb”(使用“libssh2.lib(userauth.obj)”或在“D:\lidongxuan\ssh2_proj\Release\vc90.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+         ssh2_proj.vcxproj -> D:\lidongxuan\ssh2_proj\Release\ssh2_proj.exe
+     1>已完成生成项目“D:\lidongxuan\ssh2_proj\ssh2_proj\ssh2_proj.vcxproj”(Rebuild 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.79
