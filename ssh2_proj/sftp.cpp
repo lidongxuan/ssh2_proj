@@ -1,8 +1,8 @@
 /*
-¸ÃÑùÀı¿ÉÊµÏÖÒÔÏÂ¹¦ÄÜ£º
-£¨1£©download£º¶ÁÈ¡·şÎñÆ÷ÉÏµÄÍ¼Æ¬ÎÄ¼ş²¢Ğ´Èëµ½±¾µØ
-£¨2£©mkdir£ºÔÚ·şÎñÆ÷µÄhomeÎÄ¼ş¼ĞÄÚĞÂ½¨ÎÄ¼ş¼Ğ
-£¨3£©upload£º½«±¾µØÎÄ¼şÉÏ´«ÖÁ·şÎñÆ÷
+è¯¥æ ·ä¾‹å¯å®ç°ä»¥ä¸‹åŠŸèƒ½ï¼š
+ï¼ˆ1ï¼‰downloadï¼šè¯»å–æœåŠ¡å™¨ä¸Šçš„å›¾ç‰‡æ–‡ä»¶å¹¶å†™å…¥åˆ°æœ¬åœ°
+ï¼ˆ2ï¼‰mkdirï¼šåœ¨æœåŠ¡å™¨çš„homeæ–‡ä»¶å¤¹å†…æ–°å»ºæ–‡ä»¶å¤¹
+ï¼ˆ3ï¼‰uploadï¼šå°†æœ¬åœ°æ–‡ä»¶ä¸Šä¼ è‡³æœåŠ¡å™¨
 */
 
 #pragma comment(lib,"ws2_32.lib")
@@ -42,14 +42,14 @@ int main(int argc, char *argv[])
 	struct sockaddr_in sin;
 	const char *fingerprint;
 	LIBSSH2_SESSION *session;
-	const char *username = "ldx";	//sshÓÃ»§Ãû
-	const char *password = "123";	//sshÃÜÂë
-	const char *loclfile_for_upload = "D:\\lidongxuan\\1.jpg";	//ĞèÒª±»ÉÏ´«µÄ±¾µØÎÄ¼ş
-	const char *sftpfile_write = "1.jpg";	//ÉÏ´«ºóÎ»ÓÚ·şÎñÆ÷µÄÎÄ¼şÃû
-	const char *sftppath_new_dir = "test1";	//·şÎñÆ÷ĞÂ½¨ÎÄ¼ş¼ĞµÄÃû³Æ
+	const char *username = "username";	//sshç”¨æˆ·å
+	const char *password = "password";	//sshå¯†ç 
+	const char *loclfile_for_upload = "D:\\lidongxuan\\1.jpg";	//éœ€è¦è¢«ä¸Šä¼ çš„æœ¬åœ°æ–‡ä»¶
+	const char *sftpfile_write = "1.jpg";	//ä¸Šä¼ æœåŠ¡å™¨åçš„å¦å­˜ä¸ºæ–‡ä»¶å
+	const char *sftppath_new_dir = "test1";	//æœåŠ¡å™¨æ–°å»ºæ–‡ä»¶å¤¹çš„åç§°
 
-	const char *sftpfile_for_download = "2.PNG";	//ĞèÒªÏÂÔØµÄÎÄ¼şÃû
-	const char *loclfile_write = "D:\\1.jpg";	//ÏÂÔØºó±£´æ±¾µØµÄÎÄ¼şÃû
+	const char *sftpfile_for_download = "2.PNG";	//éœ€è¦ä¸‹è½½çš„æ–‡ä»¶å
+	const char *loclfile_write = "D:\\1.jpg";	//ä¸‹è½½åä¿å­˜æœ¬åœ°çš„æ–‡ä»¶å
 
 	int rc;
 	FILE *local;
@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
 	}
 	else 
 	{
-		hostaddr = inet_addr("10.0.5.253");//Ä¿±êip£¬ĞèÒª×ªÎª16½øÖÆ
+		hostaddr = inet_addr("10.0.5.253");//ç›®æ ‡ipï¼Œéœ€è¦è½¬ä¸º16è¿›åˆ¶
 	}
 	if (argc > 2) 
 	{
@@ -104,7 +104,7 @@ int main(int argc, char *argv[])
 		return -1;
 	}
 
-	/*´´½¨socket²¢½¨Á¢Á¬½Ó*/
+	/*åˆ›å»ºsocketå¹¶å»ºç«‹è¿æ¥*/
 	sock = socket(AF_INET, SOCK_STREAM, 0);
 	sin.sin_family = AF_INET;
 	sin.sin_port = htons(22);
@@ -115,15 +115,15 @@ int main(int argc, char *argv[])
 		return -1;
 	}
 
-	/*½¨Á¢Ò»¸ö»á»°ÊµÀı*/
+	/*å»ºç«‹ä¸€ä¸ªä¼šè¯å®ä¾‹*/
 	session = libssh2_session_init();
 	if (!session)
 		return -1;
 
-	/* ½«libssh2µÄÄ£Ê½ÉèÖÃÎªblocking £¬0Îªnonblocking*/
+	/* å°†libssh2çš„æ¨¡å¼è®¾ç½®ä¸ºblocking ï¼Œ0ä¸ºnonblocking*/
 	libssh2_session_set_blocking(session, 1);
 
-	/* Æô¶¯SSH»á»°. This will trade welcome banners, exchange keys,and setup crypto, compression, and MAC layers */
+	/* å¯åŠ¨SSHä¼šè¯. This will trade welcome banners, exchange keys,and setup crypto, compression, and MAC layers */
 	rc = libssh2_session_handshake(session, sock);
 	if (rc) 
 	{
@@ -144,7 +144,7 @@ int main(int argc, char *argv[])
 
 	if (auth_pw) 
 	{
-		/* Í¨¹ıÃÜÂëÊÚÈ¨ */
+		/* é€šè¿‡å¯†ç æˆæƒ */
 		if (libssh2_userauth_password(session, username, password)) 
 		{
 			fprintf(stderr, "Authentication by password failed.\n");
@@ -153,7 +153,7 @@ int main(int argc, char *argv[])
 	}
 	else 
 	{
-		/* Í¨¹ıpublicÃÜÔ¿ÊÚÈ¨ */
+		/* é€šè¿‡publicå¯†é’¥æˆæƒ */
 		if (libssh2_userauth_publickey_fromfile(session, username,"/home/username/.ssh/id_rsa.pub","/home/username/.ssh/id_rsa",password)) 
 		{
 			fprintf(stderr, "\tAuthentication by public key failed\n");
@@ -161,7 +161,7 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	/*sftp³õÊ¼»¯*/
+	/*sftpåˆå§‹åŒ–*/
 	sftp_session = libssh2_sftp_init(session);
 
 	if (!sftp_session) 
@@ -170,7 +170,7 @@ int main(int argc, char *argv[])
 		goto shutdown;
 	}
 
-	//ÏÂÔØÎÄ¼ş
+	//ä¸‹è½½æ–‡ä»¶
 	/* Request a file via SFTP */
 	sftp_handle = libssh2_sftp_open(sftp_session, sftpfile_for_download, LIBSSH2_FXF_READ, 0);
 
@@ -202,7 +202,7 @@ int main(int argc, char *argv[])
 	} while (1);
 	fclose(local);
 
-	//ĞÂ½¨ÎÄ¼ş¼Ğ
+	//æ–°å»ºæ–‡ä»¶å¤¹
 	/* Make a directory via SFTP */
 	rc = libssh2_sftp_mkdir(sftp_session, sftppath_new_dir,
 		LIBSSH2_SFTP_S_IRWXU |
@@ -211,7 +211,7 @@ int main(int argc, char *argv[])
 	if (rc)
 		fprintf(stderr, "libssh2_sftp_mkdir failed or file already have: %d\n", rc);
 
-	//ÉÏ´«ÎÄ¼ş
+	//ä¸Šä¼ æ–‡ä»¶
 	local = fopen(loclfile_for_upload, "rb");
 	if (!local) 
 	{
